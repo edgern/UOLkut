@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../../../assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Button {
+    width: 280px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #FDFEFF;
+    color: #ED2590;
+    font-family: SF Pro Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 133.333% */
+    border: 0;
+    margin-top: 32px;
+}
+
+.Button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px;
+}
