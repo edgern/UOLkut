@@ -22,7 +22,7 @@
     align-items: center;
     gap: 10px;
     border-radius: 30px;
-    border: 1px solid #ED2590;
+    border: 1px solid #ed6d25;
     color: #4B4B4B;
     font-family: SF Pro Display;
     font-size: 14px;
@@ -33,7 +33,7 @@
 }
 
 .Expand {
-    color: #ED2590;
+    color: #ed6d25;
     font-family: SF Pro Display;
     font-size: 14px;
     font-style: normal;

@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  color: #ED2590;
+  color: #ed6d25;
   font-family: SF Pro Display;
   font-size: 14px;
   font-style: normal;
@@ -53,5 +53,5 @@ line-height: 24px; /* 150% */
 }
 
 .Vertodos {
-  color: #ED2590;
+  color: #ed6d25;
 }

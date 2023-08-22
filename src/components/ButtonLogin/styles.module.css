@@ -6,7 +6,7 @@
   border-radius: 5px;
   width: 100%;
   cursor: pointer;
-  background-color: #ED2590;
+  background-color: #ed6d25;
   color: white;
   font-weight: 600;
   font-size: 16px;
@@ -15,5 +15,5 @@
 }
 
 .button:hover{
-  box-shadow: 0px 4px 10px #ED2590 ;
+  box-shadow: 0px 4px 10px #ed6d25 ;
 }
