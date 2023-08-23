@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ProfileCard from "../../components/Profile/ProfileCard";
-import ButtonEditProfile from "../../components/Profile/ButtonEditProfile";
-import ProfileBio from "../../components/Profile/ProfileBio";
+import EditProfileForm from "../../components/EditProfile/form";
 import style from "./styles.module.css";
-import FriendsCard from "../../components/Profile/FriendsCard/FriendsCard";
-import CommunitiesCard from "../../components/Profile/CommunityCard/ComunnitiesCard";
+
 
 interface ProfileProps {}
 
-const Profile: React.FC<ProfileProps> = () => {
+const Edit: React.FC<ProfileProps> = () => {
   const navigate = useNavigate();
 
   // Estado para armazenar as informações do perfil
@@ -22,7 +20,7 @@ const Profile: React.FC<ProfileProps> = () => {
 
   // Função para lidar com a edição do perfil
   const handleEdit = () => {
-    navigate("/profile/edit", { state: profileInfo }); // Passa as informações do perfil para a página de edição
+    navigate("/edit", { state: profileInfo }); // Passa as informações do perfil para a página de edição
   };
 
   return (
@@ -33,21 +31,12 @@ const Profile: React.FC<ProfileProps> = () => {
           RelationshipStatus={profileInfo.RelationshipStatus}
           Country={profileInfo.Country}
         />
-        <ButtonEditProfile Text="Editar meu perfil" onClick={handleEdit} />
       </div>
       <div className={style.ContainerCard}>
-        <ProfileBio Name={profileInfo.Name} Bio={profileInfo.Bio} />
-      </div>
-      <div className={style.ContainerFriendsANDCommunities}>
-        <div className={style.ContainerFriends}>
-          <FriendsCard />
-        </div>
-        <div className={style.ContainerCommunities}>
-          <CommunitiesCard />
-        </div>
+        <EditProfileForm />
       </div>
     </div>
   );
 };
 
-export default Profile;
+export default Edit;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles.module.css";
-import LogoSVG from "../../assets/logo/logo.svg"; // Importe o arquivo SVG aqui
+import LogoSVG from "../../assets/logo/logo.svg";
 
 import { useNavigate } from "react-router-dom";
 
@@ -32,7 +32,7 @@ const Signup: React.FC = () => {
   const handleCadastro = () => {
     // Lógica para processar os dados de cadastro
     // Aqui você pode enviar os dados para um servidor, por exemplo
-    // E depois navegar para a página de perfil ou outra página
+    // E depois navegar para a página de perfil ou outra página                  
     navigate("/profile");
   };
 
@@ -100,7 +100,7 @@ const Signup: React.FC = () => {
           onChange={(e) => setRelacionamento(e.target.value)}
           className={styles.relationship}
         >
-          <option value="">Selecione um relacionamento</option>
+          <option value="">Relacionamento</option>
           <option value="solteiro">Solteiro</option>
           <option value="namorando">Namorando</option>
           <option value="casado">Casado</option>
@@ -108,7 +108,7 @@ const Signup: React.FC = () => {
           <option value="viuvo">Viúvo</option>
         </select>
         <label className={styles.LabelError}>{error}</label>
-        <button className={styles.Button} onClick={handleCadastro}>
+        <button className={styles.button} onClick={handleCadastro}>
           Cadastrar
         </button>
       </div>
