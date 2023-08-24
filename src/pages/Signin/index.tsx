@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ButtonLog from "../../components/ButtonLogin";
 import ButtonReg from "../../components/ButtonRegister";
 import styles from "./styles.module.css";
-import LogoSVG from "../../assets/logo/logo.svg"; // Importe o arquivo SVG aqui
+import LogoSVG from "../../assets/logo/logo.svg";
 
 import { useNavigate } from "react-router-dom";
 
@@ -33,7 +33,7 @@ const Signin: React.FC = () => {
     return emailRegex.test(email);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!email || !senha) {
       setError("Preencha todos os campos");
       return;
@@ -41,7 +41,6 @@ const Signin: React.FC = () => {
       setError("E-mail inválido");
       return;
     }
-
     navigate("/profile");
   };
 

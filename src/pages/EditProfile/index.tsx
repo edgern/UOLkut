@@ -4,10 +4,7 @@ import ProfileCard from "../../components/Profile/ProfileCard";
 import EditProfileForm from "../../components/EditProfile/form";
 import style from "./styles.module.css";
 
-
-interface ProfileProps {}
-
-const Edit: React.FC<ProfileProps> = () => {
+const Edit: React.FC = () => {
   const navigate = useNavigate();
 
   // Estado para armazenar as informações do perfil
