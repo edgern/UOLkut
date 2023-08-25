@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import ButtonLog from "../../components/ButtonLogin";
 import ButtonReg from "../../components/ButtonRegister";
 import styles from "./styles.module.css";
@@ -17,7 +18,7 @@ const Input: React.FC<{
     placeholder={placeholder}
     value={value}
     onChange={(e) => onChange(e.target.value)}
-    className={styles.input} // Adicione a classe de estilo ao input
+    className={styles.input}
   />
 );
 
@@ -41,7 +42,20 @@ const Signin: React.FC = () => {
       setError("E-mail inválido");
       return;
     }
-    navigate("/profile");
+  
+    try {
+      const response = await axios.get("http://localhost:5000/users");
+      const users = response.data
+  
+      const user = users.find((user: any) => user.email === email && user.password === senha);
+      if (user) {
+        navigate("/profile", { state: { user: user } });
+      } else {
+        setError("Credenciais inválidas");
+      }
+    } catch (error) {
+      setError("Erro ao realizar login");
+    }
   };
 
   const handleRegister = () => {
@@ -59,7 +73,6 @@ const Signin: React.FC = () => {
       </div>
       <div className={styles.Content}>
         <div className={styles.Logo}>
-          {/* Coloque o SVG aqui */}
           <img src={LogoSVG} alt="Logo" />
         </div>
         <label className={styles.Label}>Acesse o UOLkut</label>
