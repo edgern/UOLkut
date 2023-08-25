@@ -1,39 +1,43 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import ProfileCard from "../../components/Profile/ProfileCard";
-import EditProfileForm from "../../components/EditProfile/form";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import style from "./styles.module.css";
+import EditProfileForm from "../../components/EditProfile/form";
 
-const Edit: React.FC = () => {
-  const navigate = useNavigate();
+interface UserProfile {
+  id: number;
+  name: string;
+  bio: string;
+  email: string;
+  password: string;
+  birthdate: string;
+  occupation: string;
+  country: string;
+  city: string;
+  relationship: string;
+}
 
-  // Estado para armazenar as informações do perfil
-  const [profileInfo, setProfileInfo] = useState({
-    Name: "Iuri Silva",
-    RelationshipStatus: "Solteiro",
-    Country: "Brasil",
-    Bio: "Programar sem café é igual poeta sem poesia",
-  });
+const EditProfile: React.FC = () => {
+  const location = useLocation();
 
-  // Função para lidar com a edição do perfil
-  const handleEdit = () => {
-    navigate("/edit", { state: profileInfo }); // Passa as informações do perfil para a página de edição
-  };
+  useEffect(() => {
+    if (location.state) {
+      setProfileInfo(location.state);
+    }
+  }, []);
+
+  const [profileInfo, setProfileInfo] = useState<UserProfile | null>(null);
+
+  if (!profileInfo || !profileInfo.id) {
+    return null;
+  }
 
   return (
     <div className={style.Container}>
       <div className={style.ContainerCard}>
-        <ProfileCard
-          Name={profileInfo.Name}
-          RelationshipStatus={profileInfo.RelationshipStatus}
-          Country={profileInfo.Country}
-        />
-      </div>
-      <div className={style.ContainerCard}>
-        <EditProfileForm />
+        <EditProfileForm initialData={profileInfo} />
       </div>
     </div>
   );
 };
 
-export default Edit;
+export default EditProfile;
