@@ -48,7 +48,7 @@
   width: 30rem;
   color: #fff;
   font-family: SF Pro Display;
-  font-size: 1.5rem; /* Rounded to 2rem */
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -58,15 +58,15 @@
 /* Content */
 .Content {
   margin: 0;
-  gap: 1rem; /* Rounded to 1rem */
+  gap: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 20rem; /* Rounded to 25rem */
-  height: 30rem; /* Rounded to 37rem */
-  padding: 3rem 1.5rem; /* Rounded to 3rem and 1.5rem */
-  border-radius: 16px; /* Rounded to 1rem */
+  width: 20rem;
+  height: 30rem;
+  padding: 3rem 1.5rem;
+  border-radius: 16px;
   background-color: #fdfeff;
   transition: all ease 0.5s;
 }
@@ -91,15 +91,34 @@
 .doubleInputSecond {
   width: 55%;
 }
-.relatioship {
+.relationship {
   outline: none;
-  padding: 16px 20px;
+  color: rgb(139, 123, 155);
+  padding: 5px 5px;
   width: 55%;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 12px;
   background-color: #f0f2f5;
   border: none;
   align-self: flex-end;
+}
+
+.button {
+  padding: 16px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  background-color: #ed6d25;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  max-width: 350px;
+  transition: all ease 0.5s;
+}
+
+.button:hover{
+  box-shadow: 0px 4px 10px #ed6d25 ;
 }
 
 .Label {
@@ -109,37 +128,6 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-}
-
-.RememberPassword {
-  display: flex;
-  justify-content: flex-start; /* Alinha o conteúdo à esquerda */
-  align-items: center;
-  color: #868686;
-  font-family: "SF Pro Display";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  width: 100%; /* Ocupa toda a largura disponível */
-}
-
-.RememberPassword input[type="checkbox"] {
-  appearance: none; /* Removendo o estilo padrão do checkbox */
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  margin-right: 8px;
-  border: 2px solid #ffffff;
-  cursor: pointer;
-  box-shadow: 0 0 1px 1px #ddd;
-}
-
-/* Estilo da caixa de seleção quando estiver marcada */
-.RememberPassword input[type="checkbox"]:checked {
-  background-color: #ed6d25;
-  padding: 3px;
-  border: 2px solid #ffffff;
 }
 
 /* LabelError */

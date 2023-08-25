@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import axios from "axios";
 import styles from "./styles.module.css";
-import LogoSVG from "../../assets/logo/logo.svg"; // Importe o arquivo SVG aqui
+import LogoSVG from "../../assets/logo/logo.svg";
 
 import { useNavigate } from "react-router-dom";
 
@@ -29,11 +30,59 @@ const Signup: React.FC = () => {
     setError("");
   };
 
-  const handleCadastro = () => {
-    // Lógica para processar os dados de cadastro
-    // Aqui você pode enviar os dados para um servidor, por exemplo
-    // E depois navegar para a página de perfil ou outra página
-    navigate("/profile");
+  const handleCadastro = async () => {
+    if (email.length === 0) {
+      setError("Por favor, insira um endereço de e-mail.");
+      return;
+    } else if (!isValidEmail(email)) {
+      setError("Por favor, insira um endereço de e-mail válido.");
+      return;
+    } else if (senha.length < 6) {
+      setError("A senha deve ter pelo menos 6 caracteres.");
+      return;
+    } else if (nascimento.length === 0) {
+      setError("Por favor, insira sua data de nascimento.");
+      return;
+    } else if (profissao.length === 0) {
+      setError("Por favor, insira sua profissão.");
+      return;
+    } else if (pais.length === 0) {
+      setError("Por favor, insira seu país.");
+      return;
+    } else if (cidade.length === 0) {
+      setError("Por favor, insira sua cidade.");
+      return;
+    }
+
+    try {
+      const existingUserResponse = await axios.get(
+        `http://localhost:5000/users?email=${email}`
+      );
+      const existingUser = existingUserResponse.data;
+
+      if (existingUser) {
+        setError("Este endereço de e-mail já está em uso.");
+        return;
+      }
+
+      const newUser = {
+        id: new Date().valueOf(),
+        name: "",
+        email: email,
+        password: senha,
+        birthdate: nascimento,
+        occupation: profissao,
+        country: pais,
+        city: cidade,
+        relationship: relacionamento,
+      };
+
+      await axios.post("http://localhost:5000/users", newUser);
+
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -100,7 +149,7 @@ const Signup: React.FC = () => {
           onChange={(e) => setRelacionamento(e.target.value)}
           className={styles.relationship}
         >
-          <option value="">Selecione um relacionamento</option>
+          <option value="">Relacionamento</option>
           <option value="solteiro">Solteiro</option>
           <option value="namorando">Namorando</option>
           <option value="casado">Casado</option>
@@ -108,7 +157,7 @@ const Signup: React.FC = () => {
           <option value="viuvo">Viúvo</option>
         </select>
         <label className={styles.LabelError}>{error}</label>
-        <button className={styles.Button} onClick={handleCadastro}>
+        <button className={styles.button} onClick={handleCadastro}>
           Cadastrar
         </button>
       </div>

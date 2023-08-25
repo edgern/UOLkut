@@ -6,7 +6,7 @@ import HeaderProfile from './headerProfile';
 const Header: React.FC = () => {
   const location = useLocation();
 
-  const isProfilePath = location.pathname === '/profile';
+  const isProfilePath = location.pathname.startsWith('/profile');
 
   return (
     <header>
