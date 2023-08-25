@@ -1,15 +1,9 @@
 {
-  "routes": [
-    {
-      "method": "POST",
-      "path": "/auth/login",
-      "handler": "src/routes/login.js"
-    }
-  ],
   "users": [
     {
       "id": 1,
       "name": "Edgard",
+      "bio": "mais um dia",
       "email": "edgard@teste.com",
       "password": "abc123",
       "birthdate": "28/08/1997",
@@ -17,12 +11,6 @@
       "country": "brasil",
       "city": "recife",
       "relationship": "casado"
-    },
-    {
-      "email": "edgard@teste.com",
-      "password": "abc123",
-      "id": 2
     }
-  ],
-  "tokens": []
+  ]
 }

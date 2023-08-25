@@ -10,6 +10,7 @@ const Signup: React.FC = () => {
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [nome, setNome] = useState("");
   const [error, setError] = useState<string>("");
   const [nascimento, setNascimento] = useState("");
   const [profissao, setProfissao] = useState("");
@@ -110,6 +111,13 @@ const Signup: React.FC = () => {
           placeholder="Senha"
           value={senha}
           onChange={(e) => handleInputChange(e, setSenha)}
+          className={styles.input}
+        />
+        <input
+          type="name"
+          placeholder="Nome"
+          value={nome}
+          onChange={(e) => handleInputChange(e, setNome)}
           className={styles.input}
         />
         <div className={styles.doubleInputContainer}>
