@@ -31,6 +31,7 @@ const Profile: React.FC = () => {
   }, []);
 
   const [profileInfo, setProfileInfo] = useState<UserProfile | null>(null);
+  console.log(profileInfo)
 
   const handleEdit = () => {
     if (profileInfo) {

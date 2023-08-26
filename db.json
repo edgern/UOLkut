@@ -1,16 +1,15 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Edgard",
-      "bio": "mais um dia",
-      "email": "edgard@teste.com",
-      "password": "abc123",
-      "birthdate": "28/08/1997",
-      "occupation": "pedreiro",
+      "id": 1692981349149,
+      "name": "edgard",
+      "email": "buga@gmail.com",
+      "password": "123456",
+      "birthdate": "28081997",
+      "occupation": "lalala",
       "country": "brasil",
       "city": "recife",
-      "relationship": "casado"
+      "relationship": "namorando"
     }
   ]
 }

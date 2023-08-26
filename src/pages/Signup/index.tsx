@@ -10,7 +10,7 @@ const Signup: React.FC = () => {
 
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [nome, setNome] = useState("");
+  const [name, setNome] = useState("");
   const [error, setError] = useState<string>("");
   const [nascimento, setNascimento] = useState("");
   const [profissao, setProfissao] = useState("");
@@ -61,14 +61,15 @@ const Signup: React.FC = () => {
       );
       const existingUser = existingUserResponse.data;
 
-      if (existingUser) {
+      if (existingUser.length > 0) {
         setError("Este endereço de e-mail já está em uso.");
         return;
       }
+      
 
       const newUser = {
         id: new Date().valueOf(),
-        name: "",
+        name: name,
         email: email,
         password: senha,
         birthdate: nascimento,
@@ -116,7 +117,7 @@ const Signup: React.FC = () => {
         <input
           type="name"
           placeholder="Nome"
-          value={nome}
+          value={name}
           onChange={(e) => handleInputChange(e, setNome)}
           className={styles.input}
         />
