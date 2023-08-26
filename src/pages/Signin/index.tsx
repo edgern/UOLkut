@@ -4,7 +4,6 @@ import ButtonLog from "../../components/ButtonLogin";
 import ButtonReg from "../../components/ButtonRegister";
 import styles from "./styles.module.css";
 import LogoSVG from "../../assets/logo/logo.svg";
-
 import { useNavigate } from "react-router-dom";
 
 const Input: React.FC<{
@@ -21,6 +20,13 @@ const Input: React.FC<{
     className={styles.input}
   />
 );
+
+const generateToken = (email: string): string => {
+  const timestamp = new Date().getTime();
+  const userIdentifier = email;
+  const token = `${userIdentifier}_${timestamp}`;
+  return token;
+};
 
 const Signin: React.FC = () => {
   const navigate = useNavigate();
@@ -42,13 +48,18 @@ const Signin: React.FC = () => {
       setError("E-mail inválido");
       return;
     }
-  
+
     try {
       const response = await axios.get("http://localhost:5000/users");
-      const users = response.data
-  
-      const user = users.find((user: any) => user.email === email && user.password === senha);
+      const users = response.data;
+
+      const user = users.find(
+        (user: any) => user.email === email && user.password === senha
+      );
+
       if (user) {
+        const token = generateToken(email); // Generate a token
+        localStorage.setItem("token", token);
         navigate("/profile", { state: { user: user } });
       } else {
         setError("Credenciais inválidas");
