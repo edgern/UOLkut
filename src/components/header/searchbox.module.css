@@ -1,9 +1,9 @@
 .searchBox {
-  background-color: #E0E0E0;
+  background-color: #eff3f8;
   display: flex;
   align-items: center;
   border-radius: 5px;
-  margin-left: 20rem;
+  margin-left: 15rem;
 }
 
 .searchLogo {
@@ -14,7 +14,7 @@
 }
 
 .searchInput {
-  background-color: #E0E0E0;
+  background-color: #eff3f8;
   padding: 0.5rem;
   border: none;
   outline: none;

@@ -21,13 +21,6 @@ const Input: React.FC<{
   />
 );
 
-const generateToken = (email: string): string => {
-  const timestamp = new Date().getTime();
-  const userIdentifier = email;
-  const token = `${userIdentifier}_${timestamp}`;
-  return token;
-};
-
 const Signin: React.FC = () => {
   const navigate = useNavigate();
 
@@ -50,16 +43,16 @@ const Signin: React.FC = () => {
     }
 
     try {
-      const response = await axios.get("http://localhost:5000/users");
-      const users = response.data;
+      const response = await axios.post("http://localhost:3001/login", {
+        email,
+        password: senha,
+      });
+      const token = response.data.accessToken;
+      const user = response.data.user;
 
-      const user = users.find(
-        (user: any) => user.email === email && user.password === senha
-      );
+      user.token = token;
 
       if (user) {
-        const token = generateToken(email); // Generate a token
-        localStorage.setItem("token", token);
         navigate("/profile", { state: { user: user } });
       } else {
         setError("Credenciais inválidas");
@@ -107,7 +100,7 @@ const Signin: React.FC = () => {
         <ButtonLog Text="Entrar na conta" onClick={handleLogin} />
         <ButtonReg Text="Criar uma conta" onClick={handleRegister} />
         <label className={styles.Strong}>
-          <a href="/">Esqueci a minha Senha</a>
+          <a href="/recovery">Esqueci a minha Senha</a>
         </label>
       </div>
     </div>

@@ -1,44 +1,44 @@
 @font-face {
-    font-family: 'SF Pro Display';
-    src: url('../../../assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "SF Pro Display";
+  src: url("../../../assets/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .Title {
-    color: #B4AEAE;
-    font-family: SF Pro Display;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 24px;
+  color: #b4aeae;
+  font-family: SF Pro Display;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 1rem;
 }
 
 .Content {
-    display: inline-flex;
-    padding: 2px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 30px;
-    border: 1px solid #ed6d25;
-    color: #4B4B4B;
-    font-family: SF Pro Display;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 171.429% */
-    margin-left: 16px;
+  display: inline-flex;
+  padding: 2px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid #ed6d25;
+  color: #4b4b4b;
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 171.429% */
+  margin-left: 16px;
 }
 
 .Expand {
-    color: #ed6d25;
-    font-family: SF Pro Display;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 24px; /* 171.429% */
-    margin-left: 24px;
-    cursor: pointer;
+  color: #ed6d25;
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  margin-left: 24px;
+  cursor: pointer;
 }

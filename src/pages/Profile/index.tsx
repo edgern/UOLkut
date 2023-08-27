@@ -10,6 +10,7 @@ import CommunitiesCard from "../../components/Profile/CommunityCard/ComunnitiesC
 interface UserProfile {
   id: number;
   name: string;
+  token: string;
   bio: string;
   email: string;
   password: string;

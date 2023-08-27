@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('../../assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 5rem;
+  }
+  
+  .CardImg {  
+    position: relative;
+    width: 100%;
+    height: 30rem;
+    max-width: 40rem;
+    background-image: linear-gradient(189deg, rgba(20, 20, 20, 0.00) 0%, #141414 100%), url(../../assets/Login_img/Pessoas.jpg);
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+    transition: all ease 0.5s;
+    border-radius: 16px;
+  }
+  
+  .CardImg img {
+    display: flex;
+    height: 30rem;  
+  }
+  
+  .CardImg:hover {  
+    transform: scale(1.05);
+    box-shadow: 0 0.3rem 0.6rem rgba(2, 2, 2, 0.7);
+  }
+  
+  .TextoNoCantoInferior {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    width: 30rem;
+    color: #FFF;
+    font-family: SF Pro Display;
+    font-size: 1.5rem; /* Rounded to 2rem */
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    z-index: 2;
+  }
+  
+  /* Content */
+  .Content {
+    margin: 0;
+    gap: 1rem; /* Rounded to 1rem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 20rem; /* Rounded to 25rem */
+    height: 30rem; /* Rounded to 37rem */
+    padding: 3rem 1.5rem; /* Rounded to 3rem and 1.5rem */
+    border-radius: 16px; /* Rounded to 1rem */
+    background-color: #FDFEFF;
+    transition: all ease 0.5s;
+  }
+  
+    .Label {
+      color: #ed6d25;
+      font-family: SF Pro Display;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+     }
+  
+     .input {
+      outline: none;
+      padding: 13px 15px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: #f0f2f5;
+      border: none;
+    }
+    
+    /* LabelError */
+    .LabelError {
+      font-family: 'SF Pro Display';
+      font-size: 14px;
+      color: red;
+    }
+    
+  
+    .Strong { 
+      color: #ed6d25;
+      font-family: SF Pro Display;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal; 
+   }
+  
+   @media (max-width: 1000px) {
+    .Container {
+      flex-direction: column;
+    }
+  
+    .CardImg {
+      display: none; /* Remover a imagem */
+      
+    }
+  
+    .Content {    
+      transform: scale(1.2);
+    }
+  
+  }

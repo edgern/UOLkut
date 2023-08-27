@@ -57,7 +57,7 @@ const Signup: React.FC = () => {
 
     try {
       const existingUserResponse = await axios.get(
-        `http://localhost:5000/users?email=${email}`
+        `http://localhost:3001/users?email=${email}`
       );
       const existingUser = existingUserResponse.data;
 
@@ -79,7 +79,7 @@ const Signup: React.FC = () => {
         relationship: relacionamento,
       };
 
-      await axios.post("http://localhost:5000/users", newUser);
+      await axios.post("http://localhost:3001/users", newUser);
 
       navigate("/");
     } catch (error) {
