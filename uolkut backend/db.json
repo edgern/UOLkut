@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "buga@gmail.com",
+      "id": 1693154705995,
+      "name": "Edgard",
+      "birthdate": "28/08/1997",
+      "occupation": "Dev",
+      "country": "brasil",
+      "city": "recife",
+      "relationship": "namorando",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJ1Z2FAZ21haWwuY29tIiwiaWF0IjoxNjkzMTU2NzgwLCJleHAiOjE2OTMxNjAzODAsInN1YiI6IjE2OTMxNTQ3MDU5OTUifQ.JI5ngI1NKloYeJvMsJs-jrugMFdCo4mj2yrqO7TSYG8",
+      "password": "$2a$10$wtsuLbEus0AOGMN3C5.cFeGIGHkClK6qd2ar2a1D712ILkbT.DLDG"
+    }
+  ]
+}
