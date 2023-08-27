@@ -6,6 +6,7 @@ interface UserProfile {
   id: number;
   name: string;
   bio: string;
+  token: string;
   email: string;
   password: string;
   birthdate: string;
@@ -29,7 +30,9 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ initialData }) => {
   const [pais, setPais] = useState(initialData.country);
   const [nascimento, setNascimento] = useState(initialData.birthdate);
   const [senha, setSenha] = useState(initialData.password);
-  const [relacionamento, setRelacionamento] = useState(initialData.relationship);
+  const [relacionamento, setRelacionamento] = useState(
+    initialData.relationship
+  );
 
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -55,10 +58,11 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ initialData }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/users/${initialData.id}`,
+        `http://localhost:3001/users/${initialData.id}`,
         {
           method: "PUT",
           headers: {
+            'Authorization': `Bearer ${initialData.token}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify(updatedData),
@@ -77,51 +81,50 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ initialData }) => {
 
   return (
     <div className={styles.Content}>
-      <form onSubmit={handleFormSubmit}>
-        <div className={styles.inputContainer}>
-          <input
-            type="profissão"
-            placeholder="Profissão"
-            value={profissao}
-            onChange={(e) => handleInputChange(e, setProfissao)}
-            className={styles.input}
-          />
-          <input
-            type="nome"
-            placeholder="Nome"
-            value={nome}
-            onChange={(e) => handleInputChange(e, setNome)}
-            className={styles.input}
-          />
-          <input
-            type="cidade"
-            placeholder="Cidade"
-            value={cidade}
-            onChange={(e) => handleInputChange(e, setCidade)}
-            className={styles.input}
-          />
-          <input
-            type="text"
-            placeholder="País"
-            value={pais}
-            onChange={(e) => handleInputChange(e, setPais)}
-            className={styles.input}
-          />
-          <input
-            type="password"
-            placeholder="Senha"
-            value={senha}
-            onChange={(e) => handleInputChange(e, setSenha)}
-            className={styles.input}
-          />
-          <input
-            type="text"
-            placeholder="Nascimento"
-            value={nascimento}
-            onChange={(e) => handleInputChange(e, setNascimento)}
-            className={styles.input}
-          />
-        </div>
+      <label className={styles.Label}>Editar informações</label>
+      <form className={styles.inputContainer} onSubmit={handleFormSubmit}>
+        <input
+          type="profissão"
+          placeholder="Profissão"
+          value={profissao}
+          onChange={(e) => handleInputChange(e, setProfissao)}
+          className={styles.input}
+        />
+        <input
+          type="nome"
+          placeholder="Nome"
+          value={nome}
+          onChange={(e) => handleInputChange(e, setNome)}
+          className={styles.input}
+        />
+        <input
+          type="cidade"
+          placeholder="Cidade"
+          value={cidade}
+          onChange={(e) => handleInputChange(e, setCidade)}
+          className={styles.input}
+        />
+        <input
+          type="text"
+          placeholder="País"
+          value={pais}
+          onChange={(e) => handleInputChange(e, setPais)}
+          className={styles.input}
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          value={senha}
+          onChange={(e) => handleInputChange(e, setSenha)}
+          className={styles.input}
+        />
+        <input
+          type="text"
+          placeholder="Nascimento"
+          value={nascimento}
+          onChange={(e) => handleInputChange(e, setNascimento)}
+          className={styles.input}
+        />
         <select
           value={relacionamento}
           onChange={(e) => setRelacionamento(e.target.value)}

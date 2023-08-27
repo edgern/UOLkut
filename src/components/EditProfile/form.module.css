@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../../assets/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .Content {
     display: flex;
     flex-direction: column;
@@ -10,6 +17,17 @@
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+.Label {
+  color: #ed6d25;
+  align-self: center;
+  font-family: SF Pro Display;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  line-height: normal;
+ }
 
 .inputContainer {
     display: flex;

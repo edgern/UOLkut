@@ -10,6 +10,7 @@ import CommunitiesCard from "../../components/Profile/CommunityCard/ComunnitiesC
 interface UserProfile {
   id: number;
   name: string;
+  token: string;
   bio: string;
   email: string;
   password: string;
@@ -31,7 +32,6 @@ const Profile: React.FC = () => {
   }, []);
 
   const [profileInfo, setProfileInfo] = useState<UserProfile | null>(null);
-  console.log(profileInfo)
 
   const handleEdit = () => {
     if (profileInfo) {

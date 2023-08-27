@@ -4,7 +4,6 @@ import ButtonLog from "../../components/ButtonLogin";
 import ButtonReg from "../../components/ButtonRegister";
 import styles from "./styles.module.css";
 import LogoSVG from "../../assets/logo/logo.svg";
-
 import { useNavigate } from "react-router-dom";
 
 const Input: React.FC<{
@@ -42,12 +41,17 @@ const Signin: React.FC = () => {
       setError("E-mail inválido");
       return;
     }
-  
+
     try {
-      const response = await axios.get("http://localhost:5000/users");
-      const users = response.data
-  
-      const user = users.find((user: any) => user.email === email && user.password === senha);
+      const response = await axios.post("http://localhost:3001/login", {
+        email,
+        password: senha,
+      });
+      const token = response.data.accessToken;
+      const user = response.data.user;
+
+      user.token = token;
+
       if (user) {
         navigate("/profile", { state: { user: user } });
       } else {
@@ -96,7 +100,7 @@ const Signin: React.FC = () => {
         <ButtonLog Text="Entrar na conta" onClick={handleLogin} />
         <ButtonReg Text="Criar uma conta" onClick={handleRegister} />
         <label className={styles.Strong}>
-          <a href="/">Esqueci a minha Senha</a>
+          <a href="/recovery">Esqueci a minha Senha</a>
         </label>
       </div>
     </div>

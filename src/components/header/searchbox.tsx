@@ -6,7 +6,7 @@ const SearchBox: React.FC = () => {
   return (
     <div className={styles.searchBox}>
       <img src={searchLogo} alt="Logo da Pesquisa" className={styles.searchLogo} />
-      <input type="text" placeholder="Pesquisar no Orkut" className={styles.searchInput} />
+      <input type="text" placeholder="Pesquisar no UOLkut" className={styles.searchInput} />
     </div>
   );
 };

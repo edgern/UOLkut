@@ -7,6 +7,7 @@ interface UserProfile {
   id: number;
   name: string;
   bio: string;
+  token:string;
   email: string;
   password: string;
   birthdate: string;
