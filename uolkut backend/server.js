@@ -6,7 +6,7 @@ const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
 const rules = auth.rewriter({
-    users: 640
+    users: 644
   })
 
 app.db = router.db
